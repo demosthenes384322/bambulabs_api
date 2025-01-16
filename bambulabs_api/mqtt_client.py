@@ -267,6 +267,7 @@ class PrinterMQTTClient:
 
     def start_print_3mf(self, filename: str,
                         plate_number: int,
+                        plate_type: str,
                         use_ams: bool = True,
                         ams_mapping: list[int] = [0],
                         skip_objects: list[int] | None = None,
@@ -297,7 +298,7 @@ class PrinterMQTTClient:
                     "param": f"Metadata/plate_{int(plate_number)}.gcode",
                     "file": filename,
                     "bed_leveling": True,
-                    "bed_type": "textured_plate",
+                    "bed_type": plate_type,
                     "flow_cali": True,
                     "vibration_cali": True,
                     "url": f"ftp:///{filename}",

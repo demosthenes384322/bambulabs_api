@@ -229,7 +229,8 @@ class Printer:
 
     def start_print(self, filename: str,
                     plate_number: int,
-                    use_ams: bool = True,
+                    plate_type: str,
+                    use_ams: bool,
                     ams_mapping: list[int] = [0],
                     skip_objects: list[int] | None = None,
                     ) -> bool:
@@ -257,6 +258,7 @@ class Printer:
         """
         return self.__printerMQTTClient.start_print_3mf(filename,
                                                         plate_number,
+                                                        plate_type,
                                                         use_ams,
                                                         ams_mapping,
                                                         skip_objects)
